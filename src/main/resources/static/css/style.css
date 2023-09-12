@@ -31,6 +31,13 @@ body {
 	width: 100%;
 	padding-top: 20px;
 }
+/*
+ * main layout
+ */
+.logo {
+    width: 5%;
+    height: auto; /* Mantém a proporção original da imagem */
+}
 
 /*
  * Sidebar
