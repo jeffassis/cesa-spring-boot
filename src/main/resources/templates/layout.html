@@ -24,12 +24,6 @@
 </header>
 
 <div class="layout-main">
-    <aside>
-        <nav th:replace="~{fragments/sidebar :: nav-sidebar}">
-            <span>menu</span>
-        </nav>
-    </aside>
-
     <section layout:fragment="corpo">
         conteudo principal das paginas
     </section>
@@ -46,7 +40,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
     $(function() {
         $('[data-toggle="popover"]').popover();
     });
