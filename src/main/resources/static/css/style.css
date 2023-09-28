@@ -1,4 +1,9 @@
 /*
+ * Importação de fonte
+ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+
+/*
  * Header
  */
 .logo {
@@ -6,39 +11,49 @@
     max-width: 200px;
 }
 
-.navbar-color{
+.navbar-color {
+    font-family: 'Montserrat', sans-serif;
     background-color: #00254C;
+}
+
+.nav-link {
+    color: #E0B60B;
+}
+
+/* Define a cor amarela (#E0B60B) para os links de navegação do navbar */
+.navbar-nav .nav-link {
+    color: #E0B60B;
 }
 
 /*
  * Base structure
  */
 html, body {
-	height: 100%;
+    height: 100%;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-	padding-top: 58px;
-	padding-left: 0;
+    padding-top: 58px;
+    padding-left: 0;
 }
 
 /*
  * Footer
  */
 .layout-footer {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: 0;
-	height: 50px;
-	border-top: 1px solid #eeeeee;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    height: 50px;
+    border-top: 1px solid #eeeeee;
 }
 
 .footer-copy {
-	font-size: 92%;
-	display: block;
-	color: #777777;
-	text-align: center;
+    font-size: 92%;
+    display: block;
+    color: #777777;
+    text-align: center;
 }
