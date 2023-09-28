@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+<section class="layout-content" layout:fragment="corpo">
+  <nav class="navbar navbar-expand-md bg-light">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <i class="oi oi-caret-right"></i>
+          <span>Atualizar Usuário</span>
+        </li>
+      </ul>
+      <a class="btn btn-primary btn-md" th:href="@{/usuarios/listar}" role="button">
+        <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+        <span>Lista de Usuários</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="col-md-6 container justify-content-center card mb-3" id="cadastro">
+
+    <h1>Atualizar Usuário</h1>
+    <div class="card-body">
+      <form th:action="@{/usuarios/atualiza/{id} (id=${usuarios.id})}" th:object="${usuarios}" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nome">Nome do Usuário</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome Usuário"
+                   autofocus="autofocus"
+                   th:field="*{nome}"/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="username">Informe o username</label>
+            <input type="text" class="form-control" id="username" placeholder="Digite o username..."
+                   th:field="*{username}"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="senha">Informe a senha</label>
+            <input type="password" class="form-control" id="senha" placeholder="Digite a senha..."
+                   th:field="*{senha}"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="tipo">Informe o tipo</label>
+            <select class="form-select form-select-sm" aria-label="Small select example" id="tipo"
+                    th:field="*{tipo}">
+              <option th:value="'Administrador'" th:text="Administrador"></option>
+              <option th:value="'Secretária'" th:text="Secretária"></option>
+              <option th:value="'Professor'" th:text="Professor"></option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary btn-sm">Editar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</body>
+</html>
