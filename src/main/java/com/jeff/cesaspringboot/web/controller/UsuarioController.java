@@ -2,8 +2,10 @@ package com.jeff.cesaspringboot.web.controller;
 
 import com.jeff.cesaspringboot.model.Usuario;
 import com.jeff.cesaspringboot.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -30,7 +32,11 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvar")
-    public String salvar(@ModelAttribute("usuarios") Usuario usuario){
+    public String salvar(@Valid @ModelAttribute("usuarios") Usuario usuario, BindingResult result){
+        if (result.hasErrors()){
+            return "usuario/cadastro";
+        }
+
         usuarioService.saveUsuario(usuario);
         return "redirect:/usuarios/listar";
     }
@@ -42,7 +48,11 @@ public class UsuarioController {
     }
 
     @PostMapping("/atualiza/{id}")
-    public String atualizaUsuario(@PathVariable Long id, @ModelAttribute("usuarios") Usuario usuario, Model model){
+    public String atualizaUsuario(@PathVariable Long id, @Valid @ModelAttribute("usuarios") Usuario usuario, BindingResult result){
+        if (result.hasErrors()){
+            return "usuario/editar";
+        }
+
         Usuario existi = usuarioService.getUsuarioById(id);
         existi.setId(id);
         existi.setNome(usuario.getNome());
@@ -51,7 +61,7 @@ public class UsuarioController {
         existi.setTipo(usuario.getTipo());
 
         usuarioService.updateUsuario(existi);
-        return "redirect:/usuarios/cadastrar";
+        return "redirect:/usuarios/listar";
     }
 
     @GetMapping("/excluir/{id}")
