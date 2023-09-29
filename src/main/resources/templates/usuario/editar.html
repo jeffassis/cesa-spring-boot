@@ -9,17 +9,19 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <i class="oi oi-caret-right"></i>
-                    <span>Atualizar Usuário</span>
+                    <i class="oi oi-caret-right text-warning"></i>
+                    <span class="text-warning"> <b> Atualizar Usuário</b> </span>
                 </li>
             </ul>
-            <a class="btn btn-primary btn-md" th:href="@{/usuarios/listar}" role="button">
-                <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
-                <span>Lista de Usuários</span>
-            </a>
+            <div class="navbar-text my-2 my-sm-0">
+                <a class="btn btn-primary btn-sm" th:href="@{/usuarios/listar}" role="button">
+                    <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+                    <span class="d-none d-sm-inline">Lista de Usuários</span>
+                </a>
+            </div>
         </div>
     </nav>
-
+    <br>
     <div class="col-md-6 container justify-content-center card mb-3" id="cadastro">
 
         <h1>Atualizar Usuário</h1>
