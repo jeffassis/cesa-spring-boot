@@ -19,13 +19,18 @@
     <div class="col-md-6 container card mb-3" id="cadastro">
         <h1 class="text-center"><b> Cadastro de Disciplinas</b></h1>
         <div class="card-body">
-            <form th:action="@{/disciplinas/salvar}" th:object="${disciplinas}" method="POST">
+            <form th:action="${disciplinas.id == null} ? @{/disciplinas/salvar} : @{/disciplinas/atualizar/{id} (id=${disciplinas.id})}"
+                  th:object="${disciplinas}" method="POST">
+
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome Disciplina</label>
                         <input type="text" class="form-control" id="nome" placeholder="Digite a disciplina..."
-                               th:field="*{nome}"/>
+                               th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'"/>
+                        <div class="invalid-feedback">
+                            <span th:errors="*{nome}"></span>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Salvar</button>
@@ -45,7 +50,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="d : ${disciplinas}">
+                <tr th:each="d : ${disciplinasTable}">
                     <td th:text="${d.id}"></td>
                     <td th:text="${d.nome}"></td>
                     <td colspan="2">
@@ -53,7 +58,8 @@
                             <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" th:href="@{/disciplinas/excluir/{id} (id=${d.id})}" role="button">
+                        <a class="btn btn-danger btn-sm" th:href="@{/disciplinas/excluir/{id} (id=${d.id})}"
+                           role="button">
                             <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
                         </a>
                     </td>
