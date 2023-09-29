@@ -9,23 +9,23 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <i class="oi oi-caret-right"></i>
-                    <span>Cadastro de Usuários</span>
+                    <i class="oi oi-caret-right text-warning"></i>
+                    <span class="text-warning">Cadastro de Usuários</span>
                 </li>
             </ul>
-            <a class="btn btn-primary btn-md" th:href="@{/usuarios/listar}" role="button">
-                <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
-                <span>Lista de Usuários</span>
-            </a>
+            <div class="navbar-text my-2 my-sm-0">
+                <a class="btn btn-primary btn-md" th:href="@{/usuarios/listar}" role="button">
+                    <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+                    <span class="d-none d-sm-inline">Lista de Usuários</span>
+                </a>
+            </div>
         </div>
     </nav>
-
-    <div class="col-md-6 container justify-content-center card mb-3" id="cadastro">
-
-        <h1>Cadastro de Usuários</h1>
+    <br>
+    <div class="col-md-6 container card mb-3" id="cadastro">
+        <h1 class="text-center"> <b> Cadastro de Usuários</b></h1>
         <div class="card-body">
             <form th:action="@{/usuarios/salvar}" th:object="${usuarios}" method="POST">
-
                 <div th:replace="~{fragments/validacao :: validacao}"></div>
 
                 <div class="form-row">
@@ -37,34 +37,28 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="username">Informe o username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Digite o username..."
-                               th:field="*{username}"/>
-                    </div>
+                <div class="form-group">
+                    <label for="username">Informe o username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Digite o username..."
+                           th:field="*{username}"/>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="senha">Informe a senha</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Digite a senha..."
-                               th:field="*{senha}"/>
-                    </div>
+
+                <div class="form-group">
+                    <label for="senha">Informe a senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Digite a senha..."
+                           th:field="*{senha}"/>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="tipo">Informe o tipo</label>
-                        <select class="form-select form-select-sm" aria-label="Small select example" id="tipo"
-                                th:field="*{tipo}">
-                            <option th:value="'Administrador'" th:text="Administrador"></option>
-                            <option th:value="'Secretária'" th:text="Secretária"></option>
-                            <option th:value="'Professor'" th:text="Professor"></option>
-                        </select>
-                    </div>
+
+                <div class="form-group">
+                    <label for="tipo">Informe o tipo</label>
+                    <select class="form-select" id="tipo" th:field="*{tipo}">
+                        <option th:value="'Administrador'" th:text="Administrador"></option>
+                        <option th:value="'Secretária'" th:text="Secretária"></option>
+                        <option th:value="'Professor'" th:text="Professor"></option>
+                    </select>
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </div>
     </div>

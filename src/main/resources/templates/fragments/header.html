@@ -4,73 +4,73 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<header th:fragment="cabecalho">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-color fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/home}">
-                <img src="/image/cesa.ico" alt="Logo da Centro Educacional Soeiro Almeida" class= "logo">
-                <b>Centro Educacional Soeiro Almeida</b>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cadastro
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="cadastroDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user"></i> Alunos
+    <header th:fragment="cabecalho">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-color fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/home}">
+                    <img src="/image/cesa.ico" alt="Logo da Centro Educacional Soeiro Almeida" class= "logo">
+                    <b>Centro Educacional Soeiro Almeida</b>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cadastro
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-chalkboard-teacher"></i> Professor
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user-tie"></i> Responsável
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-book"></i> Disciplinas
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-clock"></i> Horários
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs"></i> Serviços
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-users"></i> Turmas
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/pedagogico}">Pedagógico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/financeiro}">Financeiro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/estoque}">Estoque</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/relatorios}">Relatórios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/usuarios/listar}">Usuários</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/ferramentas}">Ferramentas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/login}">Login</a>
-                    </li>
-                </ul>
+                            <div class="dropdown-menu" aria-labelledby="cadastroDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person"></i> Alunos
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person-check"></i> Professor
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-person-badge"></i> Responsável
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-book"></i> Disciplinas
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-clock"></i> Horários
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-gear"></i> Serviços
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-people"></i> Turmas
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/pedagogico}">Pedagógico</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/financeiro}">Financeiro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/estoque}">Estoque</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/relatorios}">Relatórios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/usuarios/listar}">Usuários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/ferramentas}">Ferramentas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/login}">Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 </body>
 </html>
