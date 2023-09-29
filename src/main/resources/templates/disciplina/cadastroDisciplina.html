@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
 </head>
 <body>
+<section class="layout-content" layout:fragment="corpo">
+    <nav class="navbar navbar-expand-md bg-light">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <i class="oi oi-caret-right text-warning"></i>
+                    <span class="text-warning"> <b> Cadastro de Disciplinas</b> </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="col-md-6 container card mb-3" id="cadastro">
+        <h1 class="text-center"><b> Cadastro de Disciplinas</b></h1>
+        <div class="card-body">
+            <form th:action="@{/disciplinas/salvar}" th:object="${disciplinas}" method="POST">
 
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nome">Nome Disciplina</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite a disciplina..."
+                               th:field="*{nome}"/>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container" id="listagem">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-sm">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="d : ${disciplinas}">
+                    <td th:text="${d.id}"></td>
+                    <td th:text="${d.nome}"></td>
+                    <td colspan="2">
+                        <a class="btn btn-info btn-sm" th:href="@{/disciplinas/editar/{id} (id=${d.id})}" role="button">
+                            <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+                        </a>
+
+                        <a class="btn btn-danger btn-sm" th:href="@{/disciplinas/excluir/{id} (id=${d.id})}" role="button">
+                            <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>
