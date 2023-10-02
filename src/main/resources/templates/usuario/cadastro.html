@@ -22,14 +22,14 @@
         </div>
     </nav>
     <br>
-    <div class="col-md-6 container card mb-3" id="cadastro">
-        <h1 class="text-center"> <b> Cadastro de Usuários</b></h1>
+    <div class="col-md-5 container card mb-3" id="cadastro">
+        <h1 class="text-center"><b> Cadastro de Usuários</b></h1>
         <div class="card-body">
             <form th:action="@{/usuarios/salvar}" th:object="${usuarios}" method="POST">
                 <div th:replace="~{fragments/validacao :: validacao}"></div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         <label for="nome">Nome do Usuário</label>
                         <input type="text" class="form-control" id="nome" placeholder="Nome Usuário"
                                autofocus="autofocus"
@@ -37,25 +37,32 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="username">Informe o username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Digite o username..."
-                           th:field="*{username}"/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="username">Informe o username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Digite o username..."
+                               th:field="*{username}"/>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="senha">Informe a senha</label>
-                    <input type="password" class="form-control" id="senha" placeholder="Digite a senha..."
-                           th:field="*{senha}"/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="senha">Informe a senha</label>
+                        <input type="password" class="form-control" id="senha" placeholder="Digite a senha..."
+                               th:field="*{senha}"/>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="tipo">Informe o tipo</label>
-                    <select class="form-select" id="tipo" th:field="*{tipo}">
-                        <option th:value="'Administrador'" th:text="Administrador"></option>
-                        <option th:value="'Secretária'" th:text="Secretária"></option>
-                        <option th:value="'Professor'" th:text="Professor"></option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="tipo">Informe o tipo</label>
+                        <br>
+                        <select class="form-control" id="tipo" th:field="*{tipo}">
+                            <option th:value="'Administrador'" th:text="Administrador"></option>
+                            <option th:value="'Secretária'" th:text="Secretária"></option>
+                            <option th:value="'Professor'" th:text="Professor"></option>
+                        </select>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Salvar</button>
